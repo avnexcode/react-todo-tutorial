@@ -21,6 +21,8 @@ export const createTodoSchema = todoSchema.omit({
 
 export const updateTodoSchema = todoSchema.partial().omit({
     id: true,
+    text: true,
+    status: true,
     createdAt: true,
     updatedAt: true
 });

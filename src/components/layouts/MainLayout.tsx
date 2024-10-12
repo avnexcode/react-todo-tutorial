@@ -3,6 +3,7 @@ import Navbar from '@/components/fragments/Navbar'
 import Container from './Container'
 import { Outlet } from 'react-router-dom'
 import Footer from '../Elements/Footer'
+import GridPattern from '@/components/ui/grid-pattern'
 
 type MainLayoutProps = {
     className?: string
@@ -19,6 +20,7 @@ const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
                 </Container>
             </div>
             <Footer />
+            <GridPattern className="absolute inset-0 -z-10" />
         </div>
     )
 }
