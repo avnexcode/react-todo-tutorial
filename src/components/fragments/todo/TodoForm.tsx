@@ -5,9 +5,9 @@ import { useToast } from '@/hooks/use-toast'
 import { TodoFormInner } from './TodoFormInner'
 import { useTodoStore } from '@/stores/todo'
 import { useEffect } from 'react'
+import AnimatedShinyText from '@/components/ui/animated-shiny-text'
 import { CreateTodoInput, createTodoSchema } from '@/types/todo'
 import { CancelUpdateButton, SubmitButton } from '@/components/Elements/todo'
-import AnimatedShinyText from '@/components/ui/animated-shiny-text'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { useMutationCreateTodo, useMutationUpdateTodo, useQueryTodoID, useQueryTodos } from '@/features/todo'
 
@@ -26,6 +26,7 @@ export const TodoForm = () => {
             variant: 'success'
         })
         form.reset()
+        window.location.reload()
         if (action === 'updated') setGlobalTodoID('')
     }
 

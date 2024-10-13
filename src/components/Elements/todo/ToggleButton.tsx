@@ -1,6 +1,6 @@
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
-import { useMutationUpdateTodo } from '@/features/todo'
+import { useMutationUpdateTodo, useQueryTodos } from '@/features/todo'
 import { useToast } from '@/hooks/use-toast'
 
 type ToggleButtonProps = {
@@ -14,6 +14,8 @@ export const ToggleButton = (props: ToggleButtonProps) => {
     const { toast } = useToast()
     const { todoID, className, statusCheked } = props
 
+    const { refetch: todoRefetch } = useQueryTodos()
+
     const { mutate: toggleStatus, isPending: togglePending } = useMutationUpdateTodo({
         onSuccess: () => {
             toast({
@@ -21,6 +23,8 @@ export const ToggleButton = (props: ToggleButtonProps) => {
                 description: `Success change status todo`,
                 variant: 'success'
             })
+            window.location.reload()
+            todoRefetch()
         }
     })
 

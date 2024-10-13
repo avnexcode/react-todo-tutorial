@@ -4,6 +4,7 @@ import Container from './Container'
 import { Outlet } from 'react-router-dom'
 import Footer from '../Elements/Footer'
 import GridPattern from '@/components/ui/grid-pattern'
+import { Providers } from './Providers'
 
 type MainLayoutProps = {
     className?: string
@@ -12,13 +13,15 @@ type MainLayoutProps = {
 const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
 
     const { className } = props
-    
+
     return (
         <div className={`${className} w-full min-h-screen flex flex-col justify-between`}>
             <div>
                 <Navbar />
                 <Container>
-                    {<Outlet />}
+                    <Providers>
+                        {<Outlet />}
+                    </Providers>
                 </Container>
             </div>
             <Footer />

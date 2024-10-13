@@ -20,6 +20,7 @@ export const DeleteButton = (props: DeleteButtonProps) => {
                 title: 'Success',
                 description: 'Success deleted todo'
             })
+            window.location.reload()
             setIsOpen(false)
         }
     })
