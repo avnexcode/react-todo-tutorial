@@ -1,6 +1,6 @@
 import React from "react";
 
-interface RenderElementsProps<T> {
+type RenderElementsProps<T> = {
     of: T[]
     render: (item: T, index: number) => React.ReactNode
 }
