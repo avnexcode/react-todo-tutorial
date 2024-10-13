@@ -10,7 +10,9 @@ type MainLayoutProps = {
 }
 
 const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
+
     const { className } = props
+    
     return (
         <div className={`${className} w-full min-h-screen flex flex-col justify-between`}>
             <div>

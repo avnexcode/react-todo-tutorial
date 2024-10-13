@@ -14,11 +14,8 @@ import { useMutationCreateTodo, useMutationUpdateTodo, useQueryTodoID, useQueryT
 export const TodoForm = () => {
 
     const { toast } = useToast()
-
     const { globalTodoID, setGlobalTodoID } = useTodoStore()
-
     const { refetch: todoRefetch } = useQueryTodos()
-
     const { data: todoIDData } = useQueryTodoID(globalTodoID)
 
     const handleSuccess = (action: 'created' | 'updated') => {
@@ -49,7 +46,7 @@ export const TodoForm = () => {
         if (globalTodoID && todoIDData) form.setValue('text', todoIDData.text)
     }, [globalTodoID, form, todoIDData])
 
-    const onSubmit = (values: CreateTodoInput) => {
+    const submitFormCondition = (values: CreateTodoInput) => {
         if (!globalTodoID) {
             createTodo(values)
         } else {
@@ -59,6 +56,8 @@ export const TodoForm = () => {
             })
         }
     }
+
+    const handleSubmit = form.handleSubmit((values: CreateTodoInput) => submitFormCondition(values))
 
     return (
         <Card>
@@ -70,7 +69,7 @@ export const TodoForm = () => {
             </CardHeader>
             <CardContent>
                 <Form {...form}>
-                    <TodoFormInner form={form} onSubmit={onSubmit} />
+                    <TodoFormInner form={form} handleSubmit={handleSubmit} />
                 </Form>
             </CardContent>
             <CardFooter className='place-content-end pt-5 flex gap-5'>

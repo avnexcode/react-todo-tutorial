@@ -11,7 +11,6 @@ type SubmitButtonProps = {
 export const SubmitButton = (props: SubmitButtonProps) => {
 
     const { disabled, formID, className } = props
-
     const { globalTodoID } = useTodoStore()
     
     return (

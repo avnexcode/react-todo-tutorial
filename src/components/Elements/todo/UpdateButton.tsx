@@ -9,13 +9,13 @@ type UpdateButtonProps = {
 export const UpdateButton = (props: UpdateButtonProps) => {
 
     const { setGlobalTodoID, globalTodoID } = useTodoStore()
-
     const { todoID, className } = props
-
     const disabled = globalTodoID === todoID
 
+    const handleUpdate = () => setGlobalTodoID(todoID)
+
     return (
-        <Button size={'sm'} variant={'neutral'} className={`${className}`} onClick={() => setGlobalTodoID(todoID)} disabled={disabled}>
+        <Button size={'sm'} variant={'neutral'} className={`${className}`} onClick={handleUpdate} disabled={disabled}>
             {disabled ? 'On Update' : 'Update'}
         </Button>
     )

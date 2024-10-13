@@ -11,7 +11,6 @@ type DeleteButtonProps = {
 export const DeleteDialog = (props: DeleteButtonProps) => {
 
     const { todoID } = props
-    
     const [isOpen, setIsOpen] = useState<boolean>(false)
     
     return (

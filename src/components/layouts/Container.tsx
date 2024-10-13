@@ -6,7 +6,9 @@ type ContainerProps = {
 };
 
 const Container: React.FC<ContainerProps> = (props) => {
+
     const { children, className } = props;
+    
     return <div className={`container pt-5 ${className}`}>{children}</div>;
 };
 

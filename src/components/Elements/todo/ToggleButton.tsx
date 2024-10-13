@@ -12,7 +12,6 @@ type ToggleButtonProps = {
 export const ToggleButton = (props: ToggleButtonProps) => {
 
     const { toast } = useToast()
-
     const { todoID, className, statusCheked } = props
 
     const { mutate: toggleStatus, isPending: togglePending } = useMutationUpdateTodo({

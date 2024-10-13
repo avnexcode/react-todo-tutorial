@@ -12,7 +12,6 @@ type DeleteButtonProps = {
 export const DeleteButton = (props: DeleteButtonProps) => {
 
     const { setIsOpen, todoID, className } = props
-
     const { toast } = useToast()
 
     const { mutate: deleteTodo, isPending: deletePending } = useMutationDeleteTodo({

@@ -11,7 +11,6 @@ type CancelUpdateButton = {
 export const CancelUpdateButton = (props: CancelUpdateButton) => {
 
     const { setGlobalTodoID } = useTodoStore()
-
     const { form, disabled } = props
 
     const handleCancel = () => {

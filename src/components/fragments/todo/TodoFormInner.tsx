@@ -5,13 +5,15 @@ import { CreateTodoInput } from '@/types/todo'
 
 type TodoFormInnerProps = {
     form: UseFormReturn<CreateTodoInput>
-    onSubmit: (values: CreateTodoInput) => void
+    handleSubmit: () => void
 }
 
 export const TodoFormInner = (props: TodoFormInnerProps) => {
-    const { form, onSubmit } = props
+
+    const { form, handleSubmit } = props
+    
     return (
-        <form id='todo-form' onSubmit={form.handleSubmit(onSubmit)}>
+        <form id='todo-form' onSubmit={handleSubmit}>
             <FormField
                 control={form.control}
                 name="text"
